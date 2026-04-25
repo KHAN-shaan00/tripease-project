@@ -25,7 +25,6 @@ public class CustomerController {
     @GetMapping("/getCustomerByName/{name}")
     public List<CustomerResponse> getCustomerByName(@PathVariable("name") String name){
         return  customerService.getCustomerByName(name);
-
     }
     @GetMapping("/getByNameAndGender/{name}/{gender}")
     public  List<CustomerResponse> getByNameAndGender(@PathVariable("name") String name,

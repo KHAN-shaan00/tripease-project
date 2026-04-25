@@ -7,6 +7,8 @@ import com.example.tripease.service.CabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cab")
 public class CabController {
@@ -18,4 +20,8 @@ public class CabController {
                               @PathVariable("id") int driver_id){
        return cabService.addCab(cabRequest,driver_id);
     }
+    @GetMapping("/findCabs/{range}")
+    public List<Cab> FindCabsMorethanThoundKm(@PathVariable int range){
+        return cabService.FindCabsMorethanThoundKm(range);
+    };
 }

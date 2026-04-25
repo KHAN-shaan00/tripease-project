@@ -32,7 +32,6 @@ public class CustomerService {
             Customer getCustomer= optionalCustomer.get();
             return CustomerTransfer.cutomerToCustomerRespons(getCustomer);
         }
-
     }
     public List<CustomerResponse> getCustomerByName(String name) {
         List<Customer> customers=customerRepository.findByName(name);
@@ -42,7 +41,6 @@ public class CustomerService {
         }
         return customerResponses;
     }
-
     public List<CustomerResponse> getByNameAndGender(String name, Gender gender) {
         List<Customer> customers=customerRepository.findByNameAndGender(name,gender);
         List<CustomerResponse> customerResponses= new ArrayList<>();
@@ -50,7 +48,6 @@ public class CustomerService {
             customerResponses.add(CustomerTransfer.cutomerToCustomerRespons(customer));
         }
         return customerResponses;
-
     }
     public List<CustomerResponse> getByNameAndGenderQ(String name, Gender gender) {
         List<Customer> customers=customerRepository.getByNameAndGenderQ(name,gender);
@@ -60,13 +57,10 @@ public class CustomerService {
         }
         return customerResponses;
     }
-
     public CustomerResponse updateByName(String name, CustomerRequest customerRequest) {
         Customer newCustomer= CustomerTransfer.customerRequestToCostomer(customerRequest);
         Customer findCustomer = customerRepository.findFirstByName(name);
         findCustomer.setName(newCustomer.getName());
         return CustomerTransfer.cutomerToCustomerRespons( customerRepository.save(findCustomer));
     }
-
-
 }

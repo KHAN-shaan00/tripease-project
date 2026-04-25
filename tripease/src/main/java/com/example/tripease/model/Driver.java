@@ -19,13 +19,9 @@ public class Driver {
     private String name;
     private int age;
     private String emailId;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
-    List<Booking> booking= new ArrayList<>();
-
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    List<Booking> booking = new ArrayList<>();
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     Cab cab;
-
-
 }
